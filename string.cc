@@ -75,7 +75,22 @@ void test1(void)
     //将C++风格字符串转换为C风格字符串
     const char * pdata = s1.c_str();
     cout << "pdata[1] =" << pdata[1] << endl;
+    const char * pdata2= s1.data();
+    cout << "pdata2[1]="<< pdata2[1]<< endl;
 
+   //查找字串
+    int pos = s1.find("world");
+   cout << "pos = "<<pos << endl; 
+   
+    //截取字串
+    
+    string s7 = s1.substr(1,10);
+    cout << "s7 = "<< s7<<endl;
+    string s8 = s1.substr();
+    cout << "s8 = "<< s8<<endl;
+    //判断字符串是否相等
+    cout << "if(s3 == s4):"<<(s3 == s4) << endl;    
+    cout << "if(s1 == s4):"<<(s1 == s2) << endl;
 
 
 
