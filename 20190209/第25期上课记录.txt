@@ -1,0 +1,236 @@
+
+
+day 01   20180723
+
+
+编程 -->  实践
+
+				
+短时记忆  --> 长时记忆
+
+10000小时理论
+
+舒适区        学习区        恐惧区
+						 10000小时
+						 刻意练习
+						 反馈机制
+					 高水平的重复
+						 
+						 8小时 *  5天 * 52周 =  2080小时
+						 
+						 5年  
+						 
+						 12小时  * 90  =  1080小时   入门
+						 
+			
+先语法 --> 再应用
+
+
+理解概念 --> 实现代码
+
+做笔记:  
+
+对键盘不熟悉:
+		> 聊天
+		> 打字软件: 早起半个小时，练习
+
+上课纪律:
+		> 上课时间： 上午9点半（复习 + 预习）     下午2点半
+		> 上课期间： 
+			
+						 
+C++ 编程范式
+		
+		面向过程  （兼容C）
+		面向对象
+		基于对象
+		泛型编程
+		模板元编程
+		函数式编程			
+		
+		
+版本控制系统
+		git  分布式
+		
+		svn  集中式
+		
+		
+0. 安装Xshell
+
+1. 安装git 
+
+	$ sudo apt-get install git
+	
+2. 注册github.com
+
+3. 
+
+$ git config --global user.name "haohb13"
+$ git config --global user.email "haohb13@gmail.com"
+	
+
+4. 常用操作
+	$ git init   // 初始化版本库
+	
+	$ git add  test.txt
+	$ git commit -m "log message"
+	
+	$ git log
+	
+	$ git reset --hard  "版本库编号id"
+	
+	$ git reflog
+	
+	
+	$ git checkout --  readme.txt    删除对工作区的内容的修改
+	
+	$ git add .     一次性把当前工作区的修改全部添加到暂存区
+	
+5. 工作区  暂存区  版本库
+
+	$ ssh-keygen -t rsa -C "youremail@example.com"
+	
+	在github纸上设置自己的公钥
+	
+	
+	$ git remote add origin git@github.com:haohb13/learngit.git
+	
+	$ git push -u origin master
+	
+	
+
+VIM    编辑器之神	
+Emacs  神之编辑器  
+	
+	
+ctrlp的操作:
+
+		,,            连按两个逗号就可以激活ctrlp
+		esc           退出ctrlp
+		
+		ctrl + j,k    上下选择打开某一个文件
+		ctrl + t      以多标签（多选项卡）方式打开文件
+		
+		g + t         在多标签之中进行切换  向前
+		
+		g + T         向后
+		
+		ctrl + f 
+		
+		
+		ctrlp 支持模糊查找, 不需要给出文件完整的名字
+		
+		
+		,ee           在任意位置打开.vimrc文件的快捷方式
+
+		
+		
+day 02   20180724		
+		C++与C的区别
+			
+		1. 命名空间
+			using namespace std;  // using编译指令
+			std::cout;  // 作用域限定符
+			using std::cout; // using声明机制   
+		
+		2. const关键字
+			> const int num1 = 10;
+			> const int num2; //error  
+				
+				int a = 10;
+				int b = 1;
+			> const int * pa = &a; //常量指针  
+				*pa = 20;//error
+				pa = &b;
+				
+				const char * pstr = "hello,world";
+				
+			> int * const pb = &a;//指针常量
+				*pb = 20; //ok
+				pb = &b; //error
+				
+		
+		3. 引用 vs 指针
+				> 定义  
+					int & ref = a;
+				> 引用是变量的别名, 它不能独立存在
+				> 引用必须要进行初始化, 一旦初始化完毕，之后再也不会改变指向
+				> 引用就是受限制的指针
+				
+				> 野指针
+						int * p;
+						*p = 10;
+						
+				> 踩内存
+				
+				> 内存泄漏
+				
+				> 引用作为函数的参数
+				
+				> 引用作为函数的返回值
+						> 返回的变量的生命周期一定要大于函数本身
+						> 不要返回局部变量的引用
+						> 不要轻易返回堆空间变量的引用，除非已经有了内存回收的策略
+						
+						int func1();// 执行return语句时是有复制开销的
+						int & func2(); // 返回引用没有复制开销
+						
+						int & ref = func1();
+				
+		
+		4. new/delete vs malloc/free(系统调用)
+				>
+		
+		5. 强制转换
+				static_cast/const_cast/dynamic_cast/reinterpret_cast
+		
+		6. 函数重载
+				> C++支持函数重载的实现原理: 名字改编
+				> 步骤: 当函数名称相同时，根据参数的类型，个数，顺序不同来进行改编
+		
+		7. C++与C的混合编程(C++如何兼容C的程序)  better C
+				extern "C"
+				{
+				
+				}
+		
+		8. inline函数 内联函数
+				> 功能与带参数的宏定义是一样的
+				> 编译时，有类型检查的，可以防止发生错误
+		
+		9. bool类型 
+		
+		10. 带默认（缺省）参数的函数
+				int func1(int x, int y = 0);
+		
+		11. std::string  vs  const char *
+				> C风格字符串:  const char * 
+				> string s1 = "hello,world";
+				
+				> C++风格字符串转换成C风格字符串    s1.c_str()
+				> s1.length()  /  s1.size();
+				> s1.append("shenzhen");
+				> s1.substr(0, 5);
+				> s1[idx]
+				
+		
+day 03   20180725
+		0. 复习
+		
+		
+面向过程的思维方式：		
+		熊大    熊二    熊三
+
+	1. 三位同学交房租给旅店老板100
+	
+	2. 旅店老板把50块交给店小二
+	
+	3. 店小二分别退给三位同学10块
+	
+	
+面向对象的思维方式：
+
+
+
+		在测试复制构造函数时，要使用编译选项 -fno-elide-constructors
+	
