@@ -26,8 +26,6 @@ void test0(void)
 
     //字符串拼接的操作
     int len = strlen(str1) + strlen(str2) +1;
-   char * pstr = (char *)malloc(len);
-  memset(pstr,0,len);
  strcpy(pstr, str1);
     strcat(pstr,str2);
    cout << "pstr = " << pstr << endl; 
